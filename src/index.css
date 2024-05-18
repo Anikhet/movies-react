@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Scrollbar styles */
-::-webkit-scrollbar {
-    width: 5px;
-}
 
 ::-webkit-scrollbar-track {
     background: #393E46;
@@ -23,7 +19,7 @@
 
 /* Custom transition for scrollbar */
 body {
-    scrollbar-color: #393E46 #222121;
+    scrollbar-color: #393E46 #f1f1f1;
     scrollbar-width: 3px;
 }
 

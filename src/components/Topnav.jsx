@@ -27,12 +27,12 @@ const Topnav = () => {
     }, [query])
 
     return (
-        <div className='w-full h-[10vh] relative flex justify-start ml-[20vw] p-2 text-[#EEEEEE]'>
+        <div className='ml-[20vw] w-[50vw] h-[8vh] relative flex justify-start  p-2 text-[#EEEEEE]'>
             <i className="text-[2vw] ri-search-line"></i>
             <input 
                 onChange={(e) => setQuery(e.target.value)} 
                 value={query} 
-                className='outline-none border-none bg-transparent mx-10 p-5 w-[40vw] h-[3vw]' 
+                className=' outline-none border-none bg-transparent mx-10 p-5 w-[30vw] h-[3vw]' 
                 type='text' 
                 placeholder='Search your favourite shows & movies'
             />
@@ -42,15 +42,15 @@ const Topnav = () => {
 
             <div className='absolute text-[#EEEEEE] h-[50vh] top-[100%] w-[40vw] overflow-auto'>
                 {searchResults.map(result => (
-                    <Link key={result.id} className=' text-[1vw] inline-block p-[2vw] w-full hover:bg-[#393E46] hover:text-white duration-500'>
+                    <Link key={result.id} className='bg-[#393E46] text-white text-[1vw] inline-block p-[2vw] w-full hover:bg-[#EEE] hover:text-black duration-500'>
                       <div className=' justify-start  flex items-center'>
                       <span className='text-[2vw] '>{result.name||result.title||result.original_name||result.title}</span>
                           <img className='object-cover ml-[4vw] w-[5vw] h-[6vw]' src={`https://image.tmdb.org/t/p/w500${result.poster_path || result.backdrop_path||result.profile_path}`}  />
                           </div>
-                          <hr className='mt-10 h-[1px]'></hr>
+                          <hr className='mt-5 h-[1px]'></hr>
                     </Link>
                 ))}
-                <hr />
+           
             </div>
         </div>
     )
