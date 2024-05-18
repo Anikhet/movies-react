@@ -5,14 +5,13 @@ import { Link } from 'react-router-dom';
 const Header = ({ data }) => {
   const imageUrl = `https://image.tmdb.org/t/p/original${data.backdrop_path ||  data.poster_path}`;
 
-  console.log(data);
 
   return (
     <div
-      className="w-full h-[60vh] flex flex-col justify-end "
+      className="w-full h-[70vh] flex flex-col justify-end "
       style={{
         background: `linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url(${imageUrl})`,
-        backgroundPosition: 'center',
+        backgroundPosition: 'top',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
       }}

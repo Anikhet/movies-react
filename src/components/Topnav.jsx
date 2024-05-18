@@ -40,9 +40,9 @@ const Topnav = () => {
                 <i onClick={() => setQuery('')} className="text-[2vw] ri-close-fill"></i>
             )}
 
-            <div className='absolute text-[#EEEEEE] h-[50vh] top-[100%] w-[40vw] overflow-auto'>
+            <div className='absolute rounded-bl-md rounded-br-md text-[#EEEEEE] h-[50vh] top-[100%] w-[40vw] overflow-auto'>
                 {searchResults.map(result => (
-                    <Link key={result.id} className='bg-[#393E46] text-white text-[1vw] inline-block p-[2vw] w-full hover:bg-[#EEE] hover:text-black duration-500'>
+                    <Link key={result.id} className='bg-[#ffffffdf] text-black text-[1vw] inline-block p-[2vw] w-full hover:bg-[#393E46] hover:text-white duration-500'>
                       <div className=' justify-start  flex items-center'>
                       <span className='text-[2vw] '>{result.name||result.title||result.original_name||result.title}</span>
                           <img className='object-cover ml-[4vw] w-[5vw] h-[6vw]' src={`https://image.tmdb.org/t/p/w500${result.poster_path || result.backdrop_path||result.profile_path}`}  />
