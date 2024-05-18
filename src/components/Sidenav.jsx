@@ -1,8 +1,12 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import 'remixicon/fonts/remixicon.css'
+import instance from '../utils/axios'
+
 
 const Sidenav = () => {
+
   return (
     <div className='w-[20%] h-full  border-[#EEEEEE] border-r-2'>
         <h1 className='text-[#EEEEEE] text-[4vw] font-semibold'>Apna.Tv <i class="text-[#EEEEEE] ri-tv-fill text-[2vw]"></i></h1>
