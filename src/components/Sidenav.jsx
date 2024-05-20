@@ -12,7 +12,7 @@ const Sidenav = () => {
         <h1 className='text-[#EEEEEE] text-[4vw] font-semibold'>Apna.Tv <i className="text-[#EEEEEE] ri-tv-fill text-[2vw]"></i></h1>
         <nav className='flex flex-col text-zinc-400 text-[1.2vw] gap-[2vw]'>
         {/* <h1 className='text-[#EEEEEE] font-semibold text-[2vw] mt-[2vw] ml-[1vw]'>Feed</h1> */}
-        <Link className='flex gap-[1vw] hover:bg-[#393E46] hover:text-white rounded-lg duration-300 p-[1vw] mt-[3vw]'><i className="ri-fire-fill"></i> Trending </Link>
+        <Link to ='/trending' className='flex gap-[1vw] hover:bg-[#393E46] hover:text-white rounded-lg duration-300 p-[1vw] mt-[3vw]'><i className="ri-fire-fill"></i> Trending </Link>
         <Link className='flex gap-[1vw] hover:bg-[#393E46] hover:text-white rounded-lg duration-300 p-[1vw]'><i className="ri-sparkling-fill"></i>Popular</Link>
         <Link className='flex gap-[1vw] hover:bg-[#393E46] hover:text-white rounded-lg duration-300 p-[1vw]'><i className="ri-film-fill"></i>Movies</Link>
         <Link className='flex gap-[1vw] hover:bg-[#393E46] hover:text-white rounded-lg duration-300 p-[1vw]'><i className="ri-tv-2-fill"></i>Tv Shows</Link>

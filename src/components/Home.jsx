@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react'
 import Sidenav from './Sidenav'
 import Topnav from './Topnav'
 import Header from './Header'
-import axios from 'axios'
 import instance from '../utils/axios' // Ensure this is correctly configured
 import Horizontal from './Horizontal'
+import Loading from './Loading'
 
 
 const Home = () => {
@@ -16,7 +16,6 @@ const Home = () => {
     try {
         const response = await instance.get(`/trending/all/day`)
    
-      
         const number = Math.floor(Math.random() * response.data.results.length);
     
         setWall(response.data.results[number]) 
@@ -33,7 +32,7 @@ const getTrending = async () => {
    
 
   try {
-      const {response} = await instance.get(`/trending/all/day`)
+      const response = await instance.get(`/trending/all/day`)
       setCard(response.data.results)
  
   
@@ -44,13 +43,21 @@ const getTrending = async () => {
 }
 
 useEffect(() => {
-    !wall && getWallpaper()
-    !card && getTrending()
-  }, [wall, card]);
+  if (!wall) getWallpaper();
+}, [wall]);
 
+useEffect(() => {
+  if (card.length === 0) getTrending();
+}, [card.length]);
 
+useEffect(() => {
+  console.log('Wall:', wall);
+  console.log('Card:', card);
+}, [wall, card]);
 
-  return wall ? (
+console.log(card)
+
+  return wall && card.length  ? (
 <>
 <Sidenav></Sidenav>
 <div className='w-[80%] h-full overflow-auto'>
@@ -59,7 +66,7 @@ useEffect(() => {
 
 <Topnav></Topnav>
 <Header data={wall}></Header>
-<Horizontal data={card}></Horizontal>
+<Horizontal card={card}></Horizontal>
 </div>
 
     
@@ -67,7 +74,7 @@ useEffect(() => {
 
 
     </>
-  ):<h1>Loading</h1>
+  ):<Loading></Loading>
 }
 
 export default Home
