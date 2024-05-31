@@ -10,9 +10,10 @@ import Loading from './Loading'
 const Home = () => {
   const[wall,setWall ] = useState(null)
   const[card,setCard] = useState([])
+  
+  
   const getWallpaper = async () => {
-   
-
+  
     try {
         const response = await instance.get(`/trending/all/day`)
    
@@ -27,6 +28,7 @@ const Home = () => {
         console.error("error", e)
     }
 }
+
 
 const getTrending = async () => {
    
@@ -43,8 +45,13 @@ const getTrending = async () => {
 }
 
 useEffect(() => {
-  if (!wall) getWallpaper();
-}, [wall]);
+  const intervalId = setInterval(() => {
+    getWallpaper()
+  }, 3000)
+
+  // Clear the interval when the component unmounts
+  return () => clearInterval(intervalId)
+}, [])
 
 useEffect(() => {
   if (card.length === 0) getTrending();
@@ -55,7 +62,7 @@ useEffect(() => {
   console.log('Card:', card);
 }, [wall, card]);
 
-console.log(card)
+
 
   return wall && card.length  ? (
 <>
